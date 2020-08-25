@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:azure-devops-yaml-pipeline-validator.helloWorld"
+		"onCommand:azure-devops-yaml-pipeline-validator.validate"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "azure-devops-yaml-pipeline-validator.helloWorld",
-				"title": "Hello World"
+				"command": "azure-devops-yaml-pipeline-validator.validate",
+				"title": "Validate"
 			}
 		]
 	},

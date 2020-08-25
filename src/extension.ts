@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { MessageOptions } from 'vscode';
 const got = require('got');
 
 // this method is called when your extension is activated
@@ -18,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Validating YAML Pipeline');
+		//vscode.window.showInformationMessage('Validating YAML Pipeline');
 
 		let editor = vscode.window.activeTextEditor;
 
@@ -37,7 +38,8 @@ export function activate(context: vscode.ExtensionContext) {
 					vscode.window.showInformationMessage('Valid YAML Pipeline');
 				}
 				catch (error) {
-					vscode.window.showErrorMessage('Invalid YAML Pipeline - ' + error.response.body);
+					let options: MessageOptions = { modal: false};
+					vscode.window.showErrorMessage('Invalid YAML Pipeline - ' + error.response.body, options);
 
 				}
 			})();

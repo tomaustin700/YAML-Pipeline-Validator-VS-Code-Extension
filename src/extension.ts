@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+const got = require('got');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -17,11 +18,36 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Azure DevOps YAML Pipeline Validator!');
+		vscode.window.showInformationMessage('Validating YAML Pipeline');
+
+		let editor = vscode.window.activeTextEditor;
+
+		if (editor) {
+			let document = editor.document;
+			let documentText = document.getText();
+
+			(async () => {
+				try {
+					await got.post('https://yamlpipelinesvalidator.dev/api/Validation/Validate', {
+						json: {
+							yaml: documentText
+						},
+						responseType: 'json'
+					});
+					vscode.window.showInformationMessage('Valid YAML Pipeline');
+				}
+				catch (error) {
+					vscode.window.showErrorMessage('Invalid YAML Pipeline - ' + error.response.body);
+
+				}
+			})();
+
+		}
+
 	});
 
 	context.subscriptions.push(disposable);
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

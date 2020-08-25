@@ -19,7 +19,15 @@
 				"command": "azure-devops-yaml-pipeline-validator.validate",
 				"title": "Validate"
 			}
-		]
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "azure-devops-yaml-pipeline-validator.validate",
+					"when": "editorLangId == yaml"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -41,5 +49,8 @@
 		"mocha": "^8.0.1",
 		"typescript": "^3.8.3",
 		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"got": "^11.5.2"
 	}
 }

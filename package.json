@@ -33,6 +33,13 @@
 				"title": "Azure Pipelines YAML Validator: Validate"
 			}
 		],
+		"keybindings": [
+            {
+                "command": "azure-devops-yaml-pipeline-validator.validate",
+                "key": "ctrl+alt+v",
+                "mac": "ctrl+cmd+v"
+			}
+		],
 		"menus": {
 			"commandPalette": [
 				{

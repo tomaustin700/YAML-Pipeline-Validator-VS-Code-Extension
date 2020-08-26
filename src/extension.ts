@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		//vscode.window.showInformationMessage('Validating YAML Pipeline');
+		vscode.window.showInformationMessage('Validating Pipeline');
 
 		let editor = vscode.window.activeTextEditor;
 
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 					vscode.window.showInformationMessage('Valid YAML Pipeline');
 				}
 				catch (error) {
-					let options: MessageOptions = { modal: false};
+					let options: MessageOptions = { modal: true};
 					vscode.window.showErrorMessage('Invalid YAML Pipeline - ' + error.response.body, options);
 
 				}

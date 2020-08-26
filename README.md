@@ -16,7 +16,7 @@ None
 
 None
 
-### 1.0.1
+### 1.1.1
 
 Added keyboard shortcuts (ctrl+alt+v Windows, ctrl+cmd+v Mac)
 

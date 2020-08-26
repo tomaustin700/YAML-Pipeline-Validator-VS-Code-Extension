@@ -6,7 +6,7 @@ This extension allows you to validate your Azure DevOps YAML pipelines without c
 
 From within a YAML file open the Command Palette (Ctrl+Shift+P) and select the 'Azure Pipelines YAML Validator: Validate' command. Your YAML file will then be validated and any problems reported.
 
-![](images/command.png)
+![](images/Command.png)
 
 ## Requirements
 

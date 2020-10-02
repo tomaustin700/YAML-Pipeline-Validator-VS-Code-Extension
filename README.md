@@ -18,6 +18,13 @@ None
 
 ## Releases
 
+### 1.5.0
+Added the following vscode settings, these allow validation to be ran against a user defined pipeline. This should enable validation of pipelines with variable groups or 3rd party  (PAT that has 'Read & Execute' Build permissions).
+
+yamlpipelinesvalidator.builddefinitionid
+yamlpipelinesvalidator.pat
+yamlpipelinesvalidator.projecturl
+
 ### 1.1.1
 
 Added keyboard shortcuts (ctrl+alt+v Windows, ctrl+cmd+v Mac)

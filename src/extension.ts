@@ -26,12 +26,19 @@ export function activate(context: vscode.ExtensionContext) {
 		if (editor) {
 			let document = editor.document;
 			let documentText = document.getText();
+			const pat = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('pat');
+			const projectUrl = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('projecturl');
+			const buildDefinitionId = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('builddefinitionid');
 
 			(async () => {
 				try {
 					await got.post('https://yamlpipelinesvalidator.dev/api/Validation/Validate', {
 						json: {
-							yaml: documentText
+							yaml: documentText,
+							pat: pat,
+							projectUrl: projectUrl,
+							buildDefinitionId: buildDefinitionId
+
 						},
 						responseType: 'json'
 					});

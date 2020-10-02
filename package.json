@@ -47,6 +47,35 @@
 					"when": "editorLangId == yaml"
 				}
 			]
+		},
+		"configuration": {
+			"title": "Azure Pipelines YAML Validator",
+			"properties": {
+				"yamlpipelinesvalidator.pat": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Azure DevOps PAT for authentication against your own Azure DevOps instance"
+				},
+				"yamlpipelinesvalidator.projecturl": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "URL of your Azure DevOps project"
+				},
+				"yamlpipelinesvalidator.builddefinitionid": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "ID of your Azure DevOps build definition"
+				}
+			}
 		}
 	},
 	"scripts": {

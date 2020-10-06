@@ -100,6 +100,6 @@
 		"vscode-test": "^1.4.0"
 	},
 	"dependencies": {
-		"got": "^11.5.2"
+		"got": "^11.7.0"
 	}
 }

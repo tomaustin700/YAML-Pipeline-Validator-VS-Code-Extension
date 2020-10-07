@@ -29,7 +29,17 @@ export function activate(context: vscode.ExtensionContext) {
 			const pat = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('pat');
 			const projectUrl = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('projecturl');
 			const buildDefinitionId = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('builddefinitionid');
-			if(isEmptyOrNull(pat as string) || isEmptyOrNull(projectUrl as string) || isEmptyOrNull(buildDefinitionId as string) ){
+			let settingsRequired = false;
+			if(!isEmptyOrNull(pat as string)){
+				settingsRequired = isEmptyOrNull(projectUrl as string) || isEmptyOrNull(buildDefinitionId as string);
+			}
+			if(!isEmptyOrNull(projectUrl as string)){
+				settingsRequired = isEmptyOrNull(pat as string) || isEmptyOrNull(buildDefinitionId as string);
+			}
+			if(!isEmptyOrNull(buildDefinitionId as string)){
+				settingsRequired = isEmptyOrNull(pat as string) || isEmptyOrNull(projectUrl as string);
+			}
+			if(settingsRequired){
 				vscode.window.showErrorMessage("One or more configuration settings have not been set");
 				return;
 			}

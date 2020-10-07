@@ -29,7 +29,10 @@ export function activate(context: vscode.ExtensionContext) {
 			const pat = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('pat');
 			const projectUrl = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('projecturl');
 			const buildDefinitionId = vscode.workspace.getConfiguration('yamlpipelinesvalidator').get('builddefinitionid');
-
+			if(isEmptyOrNull(pat as string) || isEmptyOrNull(projectUrl as string) || isEmptyOrNull(buildDefinitionId as string) ){
+				vscode.window.showErrorMessage("One or more configuration settings have not been set");
+				return;
+			}
 			(async () => {
 				try {
 					await got.post('https://yamlpipelinesvalidator.dev/api/Validation/Validate', {
@@ -60,3 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 // this method is called when your extension is deactivated
 export function deactivate() { }
+
+function isEmptyOrNull(val: string): boolean {
+	return val === null || val === "";
+}

@@ -10,6 +10,9 @@ From within a YAML file open the Command Palette (Ctrl+Shift+P) and select the '
 
 ## Requirements
 
+## Notice
+Please note that this extension sends YAML to a remote server for validation, YAML is not stored or inspected in anyway but you should still be aware of this.
+
 None
 
 ## Known Issues

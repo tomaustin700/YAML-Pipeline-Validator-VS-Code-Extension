@@ -16,7 +16,7 @@ Please note that this extension sends YAML to a remote server for validation, YA
 
 ## Known Issues
 
-None
+YAML files which reference template files will not validate correctly.
 
 ## Releases
 

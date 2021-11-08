@@ -45,15 +45,14 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 			(async () => {
 				try {
-					await got.post('https://yamlpipelinesvalidator.dev/api/Validation/Validate', {
+					await got.post('https://yamlpipelinesvalidatordev.azurewebsites.net/api/validate', {
 						json: {
 							yaml: documentText,
 							pat: pat,
 							projectUrl: projectUrl,
 							buildDefinitionId: buildDefinitionId
 
-						},
-						responseType: 'json'
+						}
 					});
 					vscode.window.showInformationMessage('Valid YAML Pipeline');
 				}

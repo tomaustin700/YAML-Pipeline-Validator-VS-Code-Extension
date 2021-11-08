@@ -15,7 +15,7 @@
 	"bugs": {
 		"url": "https://github.com/tomaustin700/YAML-Pipeline-Validator-VS-Code-Extension/issues"
 	},
-	"version": "1.7.0",
+	"version": "1.8.0",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
